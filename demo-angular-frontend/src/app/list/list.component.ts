@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {AppService} from '../service/app.service';
+import {Component, OnInit} from '@angular/core';
+import {EmployeeService} from '../service/employee.service';
 
 @Component({
   selector: 'app-list',
@@ -8,7 +8,9 @@ import {AppService} from '../service/app.service';
 })
 export class ListComponent implements OnInit {
   employees: any;
-  constructor(private appService: AppService) { }
+
+  constructor(private appService: EmployeeService) {
+  }
 
   ngOnInit(): void {
     this.appService.getEmployeeList().subscribe((result) => {
@@ -17,4 +19,8 @@ export class ListComponent implements OnInit {
     });
   }
 
+  // tslint:disable-next-line:typedef
+  deleteEmployee(id){
+
+  }
 }
